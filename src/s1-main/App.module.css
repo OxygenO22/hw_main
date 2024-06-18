@@ -1,5 +1,19 @@
 .App {
-    --header_height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hw__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1320px;
+    min-height: 100vh;
+    border: 1px solid #000;
 }
 
 .hw {
