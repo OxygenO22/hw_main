@@ -81,13 +81,13 @@ const HW1 = () => {
 
     return (
       <div id={"hw1"} className={s2.hw__wrapper}>
-        <div className={s2.hwTitle}>Homework #1</div>
+        <div className={s2.hwTitle}>
+          <p className={s2.hwTitle__text}>Hometask № 1</p>
+        </div>
         <div className={s2.hw}>
           {/*проверка отображения (не менять)*/}
-          <div>
             <Message message={myMessage} />
             <FriendMessage message={friendMessage} />
-          </div>
 
           {/*для автоматической проверки дз (не менять)*/}
           <MessageSender M={Message} />

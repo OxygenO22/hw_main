@@ -11,13 +11,16 @@ const FriendMessage = (props: MessagePropsType) => {
         className={s.friendMessage}
       >
         <div className={s.friendImageAndText}>
-          <img
-            id={"hw1-friend-avatar-" + props.message.id}
-            // создаёт студент
-            src={props.message.user.avatar}
-            alt={`Avatar of ${props.message.user.name}`}
-            //
-          />
+          <div className={s.image__wrapper}>
+            <img
+              className={s.image}
+              id={"hw1-friend-avatar-" + props.message.id}
+              // создаёт студент
+              src={props.message.user.avatar}
+              alt={`Avatar of ${props.message.user.name}`}
+              //
+            />
+          </div>
           <div className={s.friendText}>
             <div
               id={"hw1-friend-name-" + props.message.id}
