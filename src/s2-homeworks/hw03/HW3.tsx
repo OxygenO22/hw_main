@@ -36,6 +36,7 @@ export const pureAddUserCallback = (
   setUsers([...users, user]);
 };
 
+
 const HW3 = () => {
     const [users, setUsers] = useState<UserType[]>([]); // need to fix any
 
@@ -43,9 +44,12 @@ const HW3 = () => {
         pureAddUserCallback(name, setUsers, users)
     }
 
+
     return (
-      <div id={"hw3"}>
-        <div className={s2.hwTitle}>Hometask № 3</div>
+      <div id={"hw3"} className={s2.hw__wrapper}>
+        <div className={s2.hwTitle}>
+          <p className={s2.hwTitle__text}>Hometask № 3</p>
+        </div>
         {/*для автоматической проверки дз (не менять)*/}
 
         <div className={s2.hw}>
