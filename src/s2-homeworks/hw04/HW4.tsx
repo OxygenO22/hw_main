@@ -11,14 +11,16 @@ import Stand from './Stand'
 
 const HW4 = () => {
     return (
-        <div id={'hw4'}>
-            <div className={s2.hwTitle}>Homework #4</div>
-            {/*демонстрация возможностей компонент:*/}
-            <div className={s2.hw}>
-                <Stand />
-            </div>
+      <div id={"hw4"} className={s2.hw__wrapper}>
+        <div className={s2.hwTitle}>
+          <p className={s2.hwTitle__text}>Hometask № 4</p>
         </div>
-    )
+        {/*демонстрация возможностей компонент:*/}
+        <div className={s2.hw}>
+          <Stand />
+        </div>
+      </div>
+    );
 }
 
 export default HW4
