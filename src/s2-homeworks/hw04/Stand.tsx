@@ -27,7 +27,7 @@ const Stand = () => {
               id={"hw4-super-input-with-error"}
               value={stateForAllInputs}
               onChangeText={setValue}
-              error={error}
+              error={!stateForAllInputs.trim() && error}
               onEnter={() => {
                 setError(stateForAllInputs.trim() ? "" : "Error");
                 setValue("");
@@ -40,13 +40,18 @@ const Stand = () => {
           <div className={s.buttons__inner}>
             {/*обычная кнопка:*/}
             <div>
-              <SuperButton id={"hw4-super-button-default"}>
+              <SuperButton
+                id={"hw4-super-button-default"}
+              >
                 Дефолтная
               </SuperButton>
             </div>
             {/*красная кнопка:*/}
             <div>
-              <SuperButton id={"hw4-super-button-red"} xType={"red"}>
+              <SuperButton
+                id={"hw4-super-button-red"}
+                xType={"red"}
+              >
                 Опасность
               </SuperButton>
             </div>
@@ -54,7 +59,6 @@ const Stand = () => {
             <div>
               <SuperButton
                 id={"hw4-super-button-disabled"}
-                xType={"red"}
                 disabled
               >
                 Не активна

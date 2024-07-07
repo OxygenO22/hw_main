@@ -2,6 +2,10 @@
   font-size: 0.88em;
   font-weight: 600;
   line-height: 20px;
+  padding: 5px 24px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .disabled {
@@ -37,7 +41,7 @@
 }
 
 .secondary:hover {
-  background: #FF1A47;
+  background: #E5F0FA;
 }
 
 
@@ -46,7 +50,7 @@
 }
 
 .secondary:active {
-  background: #B21232;
+  background: #C9E5FF;
 }
 
 .red:active {
@@ -55,4 +59,5 @@
 
 .button:disabled {
   background: #004D99;
+  cursor: default;
 }
