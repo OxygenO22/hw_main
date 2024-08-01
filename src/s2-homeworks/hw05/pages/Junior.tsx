@@ -1,4 +1,5 @@
 import React from 'react'
+import s from './Page.module.css'
 // import HW6 from '../../hw06/HW6'
 // import HW7 from '../../hw07/HW7'
 // import HW8 from '../../hw08/HW8'
@@ -6,7 +7,7 @@ import React from 'react'
 
 function Junior() {
     return (
-        <div id={'hw5-page-junior'}>
+        <div id={'hw5-page-junior'} className={s.page__wrapper}>
             {/*<HW6 />*/}
             {/*<HW7 />*/}
             {/*<HW8 />*/}
