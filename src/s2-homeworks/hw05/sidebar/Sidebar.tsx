@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {NavLink, NavLinkProps} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import s from './Sidebar.module.css'
 import {PATH} from '../Pages'
 import closeIcon from './closeOutline.svg'

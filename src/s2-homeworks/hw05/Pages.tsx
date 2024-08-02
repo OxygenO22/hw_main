@@ -13,7 +13,7 @@ export const PATH = {
 
 function Pages() {
     return (
-      <div>
+      <>
         {/*Routes выбирает первый подходящий роут*/}
         <Routes>
           {/*роутинг будут писать студенты*/}
@@ -29,7 +29,7 @@ function Pages() {
           <Route path="/*" element={<Navigate to={"/error404"} />} />
           <Route path="/error404" element={<Error404 />} />
         </Routes>
-      </div>
+      </>
     );
 }
 

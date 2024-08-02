@@ -19,42 +19,46 @@ const HW6 = () => {
     }
     const restore = () => {
         // делают студенты
-
+        setValue(restoreState("hw6-editable-span-value", value));
     }
 
     return (
-        <div id={'hw6'}>
-            <div className={s2.hwTitle}>Homework #6</div>
-
-            {/*демонстрация возможностей компоненты:*/}
-            <div className={s2.hw}>
-                <div className={s.editableSpanContainer}>
-                    <SuperEditableSpan
-                        id={'hw6-spanable-input'}
-                        value={value}
-                        onChangeText={setValue}
-                        spanProps={{
-                            id: 'hw6-editable-span',
-                            defaultText: 'enter text...',
-                        }}
-                    />
-                </div>
-
-                <div className={s.buttonsContainer}>
-                    <SuperButton id={'hw6-save'} onClick={save}>
-                        Save to ls
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw6-restore'}
-                        onClick={restore}
-                        xType={'secondary'}
-                    >
-                        Get from ls
-                    </SuperButton>
-                </div>
-            </div>
+      <div id={"hw6"} className={s2.hw__wrapper}>
+        <div className={s2.hwTitle}>
+          <p className={s2.hwTitle__text}>Hometask № 6</p>
         </div>
-    )
+
+        {/*демонстрация возможностей компоненты:*/}
+        <div className={s2.hw}>
+          <div className={s.hw6__inner}>
+            <div className={s.editableSpanContainer}>
+              <SuperEditableSpan
+                id={"hw6-spanable-input"}
+                value={value}
+                onChangeText={setValue}
+                spanProps={{
+                  id: "hw6-editable-span",
+                  defaultText: "Edit text",
+                }}
+              />
+            </div>
+
+            <div className={s.buttonsContainer}>
+              <SuperButton id={"hw6-save"} onClick={save}>
+                Save to ls
+              </SuperButton>
+              <SuperButton
+                id={"hw6-restore"}
+                onClick={restore}
+                xType={"secondary"}
+              >
+                Get from ls
+              </SuperButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 }
 
 export default HW6

@@ -1,5 +1,21 @@
-.buttonsContainer {
+.hw6__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 280px;
+  height: 100%;
 }
 
 .editableSpanContainer {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
 }
+
+.buttonsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+

@@ -21,10 +21,10 @@ export const Layout: FC<PropsType> = ({ children }) => {
       <div className={s.layout__wrapper}>
         <Sidebar open={open} handleClose={handleClose} />
         <Header handleOpen={handleOpen} />
-        <div>
+        
           {/*страницы*/}
           {children}
-        </div>
+        
       </div>
     );
 }
