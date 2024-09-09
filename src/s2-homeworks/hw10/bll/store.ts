@@ -2,16 +2,14 @@ import { loadingReducer } from './loadingReducer'
 import { combineReducers, legacy_createStore } from 'redux'
 import { themeReducer } from '../../hw12/bll/themeReducer'
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
     loading: loadingReducer, // hw10
     theme: themeReducer, // hw12
 })
 
-const store = legacy_createStore(reducers)
+export const store = legacy_createStore(rootReducer);
 
-export default store
-
-export type AppStoreType = ReturnType<typeof reducers>
+export type AppRootStateType = ReturnType<typeof rootReducer>
 
 // @ts-ignore
 window.store = store // for dev // для того чтобы автотесты видели состояние данных
