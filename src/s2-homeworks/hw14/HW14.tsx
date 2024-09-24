@@ -18,11 +18,13 @@ const getTechs = (find: string) => {
         .get<{ techs: string[] }>(
             'https://samurai.it-incubator.io/api/3.0/homework/test2',
             {params: {find}}
-        )
+        ).then(res => res.data.techs)
         .catch((e) => {
             alert(e.response?.data?.errorText || e.message)
         })
 }
+
+
 
 const HW14 = () => {
     const [find, setFind] = useState('')
@@ -32,13 +34,15 @@ const HW14 = () => {
 
     const sendQuery = (value: string) => {
         setLoading(true)
+        setTechs([])
         getTechs(value)
             .then((res) => {
                 // делает студент
-
+                if (res) {
+                  setTechs(res);
+                  setLoading(false);
+                }
                 // сохранить пришедшие данные
-
-                //
             })
     }
 
@@ -48,15 +52,17 @@ const HW14 = () => {
 
         // добавить/заменить значение в квери урла
         // setSearchParams(
-
+        setSearchParams()
+          ;
         //
     }
 
     useEffect(() => {
-        const params = Object.fromEntries(searchParams)
-        sendQuery(params.find || '')
-        setFind(params.find || '')
-    }, [])
+      const params = Object.fromEntries(searchParams);
+      sendQuery(params.find || "");
+      setFind(params.find || "");
+      sendQuery(find);
+    }, []);
 
     const mappedTechs = techs.map(t => (
         <div key={t} id={'hw14-tech-' + t} className={s.tech}>
@@ -65,25 +71,27 @@ const HW14 = () => {
     ))
 
     return (
-        <div id={'hw14'}>
-            <div className={s2.hwTitle}>Homework #14</div>
-
-            <div className={s2.hw}>
-                <SuperDebouncedInput
-                    id={'hw14-super-debounced-input'}
-                    value={find}
-                    onChangeText={onChangeText}
-                    onDebouncedChange={sendQuery}
-                />
-
-                <div id={'hw14-loading'} className={s.loading}>
-                    {isLoading ? '...ищем' : <br/>}
-                </div>
-
-                {mappedTechs}
-            </div>
+      <div id={"hw14"} className={s2.hw__wrapper}>
+        <div className={s2.hwTitle}>
+          <p className={s2.hwTitle__text}>Hometask № 14</p>
         </div>
-    )
+
+        <div className={s2.hw}>
+          <SuperDebouncedInput
+            id={"hw14-super-debounced-input"}
+            value={find}
+            onChangeText={onChangeText}
+            onDebouncedChange={sendQuery}
+          />
+
+          <div id={"hw14-loading"} className={s.loading}>
+            {isLoading ? "...ищем" : <br />}
+          </div>
+
+          {mappedTechs}
+        </div>
+      </div>
+    );
 }
 
 export default HW14
