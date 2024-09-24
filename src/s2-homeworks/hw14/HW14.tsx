@@ -4,6 +4,7 @@ import s from './HW14.module.css'
 import axios from 'axios'
 import SuperDebouncedInput from './common/c8-SuperDebouncedInput/SuperDebouncedInput'
 import {useSearchParams} from 'react-router-dom'
+import { useDebouncedCallback } from 'use-debounce'
 
 /*
 * 1 - дописать функцию onChangeTextCallback в SuperDebouncedInput
@@ -31,20 +32,20 @@ const HW14 = () => {
     const [isLoading, setLoading] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<string[]>([])
+    
 
-    const sendQuery = (value: string) => {
-        setLoading(true)
-        setTechs([])
-        getTechs(value)
-            .then((res) => {
-                // делает студент
-                if (res) {
-                  setTechs(res);
-                  setLoading(false);
-                }
-                // сохранить пришедшие данные
-            })
-    }
+    const sendQuery = useDebouncedCallback((value: string) => {
+      setLoading(true);
+      setTechs([]);
+      getTechs(value).then((res) => {
+        // делает студент
+        if (res) {
+          setTechs(res);
+          setLoading(false);
+        }
+        // сохранить пришедшие данные
+      });
+    }, 1500);
 
     const onChangeText = (value: string) => {
         setFind(value)
@@ -53,7 +54,6 @@ const HW14 = () => {
         // добавить/заменить значение в квери урла
         // setSearchParams(
         setSearchParams()
-          ;
         //
     }
 
@@ -61,7 +61,6 @@ const HW14 = () => {
       const params = Object.fromEntries(searchParams);
       sendQuery(params.find || "");
       setFind(params.find || "");
-      sendQuery(find);
     }, []);
 
     const mappedTechs = techs.map(t => (
@@ -77,18 +76,20 @@ const HW14 = () => {
         </div>
 
         <div className={s2.hw}>
-          <SuperDebouncedInput
-            id={"hw14-super-debounced-input"}
-            value={find}
-            onChangeText={onChangeText}
-            onDebouncedChange={sendQuery}
-          />
+          <div className={s.tech}>
+            <SuperDebouncedInput
+              id={"hw14-super-debounced-input"}
+              value={find}
+              onChangeText={onChangeText}
+              onDebouncedChange={sendQuery}
+            />
 
-          <div id={"hw14-loading"} className={s.loading}>
-            {isLoading ? "...ищем" : <br />}
+            <div id={"hw14-loading"} className={s.loading}>
+              {isLoading ? "...ищем" : <br />}
+            </div>
+
+            {mappedTechs}
           </div>
-
-          {mappedTechs}
         </div>
       </div>
     );
