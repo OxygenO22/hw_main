@@ -28,9 +28,6 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
 ) => {
     
 
-    console.log("SuperDebouncedInput");
-    
-
     const onChangeTextCallback = (value: string) => {
         onChangeText?.(value)
 

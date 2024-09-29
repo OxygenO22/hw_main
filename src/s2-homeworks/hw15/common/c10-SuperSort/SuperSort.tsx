@@ -51,4 +51,4 @@ const SuperSort: React.FC<SuperSortPropsType> = (
     )
 }
 
-export default SuperSort
+export default SuperSort 
