@@ -1,11 +1,20 @@
-.pagination {
+.pagination, .select {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
-.text1 {
-
+.text__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
 }
 
-.text2 {
-
+.text1, .text2 {
+    font-size: 0.85em;
+    font-weight: 400;
+    line-height: 16px;
+    color: #0D0B0C;
 }

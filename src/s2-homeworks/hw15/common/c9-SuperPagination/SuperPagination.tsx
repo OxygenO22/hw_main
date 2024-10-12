@@ -30,39 +30,44 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     }
 
     return (
-        <div className={s.pagination}>
-            <Pagination
-                id={id + '-pagination'}
-                sx={{
-                    // стили для Pagination // пишет студент
-                }}
-                page={page}
-                count={lastPage}
-                onChange={onChangeCallback}
-                hideNextButton
-                hidePrevButton
-            />
+      <div className={s.pagination}>
+        <Pagination
+          id={id + "-pagination"}
+          sx={
+            {
+              // стили для Pagination // пишет студент
+            }
+          }
+          page={page}
+          count={lastPage}
+          onChange={onChangeCallback}
+          hideNextButton
+          hidePrevButton
+          color="primary"
+          shape="rounded"
+        />
 
-            <span className={s.text1}>
-                показать
-            </span>
+        <div className={s.select}>
+          <div className={s.text__wrapper}>
+            <span className={s.text1}>Показать</span>
+          </div>
 
-            <SuperSelect
-                id={id + '-pagination-select'}
-                value={itemsCountForPage}
-                options={[
-                    {id: 4, value: 4},
-                    {id: 7, value: 7},
-                    {id: 10, value: 10},
-                ]}
-                onChange={onChangeSelect}
-            />
-
-            <span className={s.text2}>
-                строк в таблице
-            </span>
+          <SuperSelect
+            id={id + "-pagination-select"}
+            value={itemsCountForPage}
+            options={[
+              { id: 4, value: 4 },
+              { id: 7, value: 7 },
+              { id: 10, value: 10 },
+            ]}
+            onChange={onChangeSelect}
+          />
+          <div className={s.text__wrapper}>
+            <span className={s.text2}>строк в таблице</span>
+          </div>
         </div>
-    )
+      </div>
+    );
 }
 
 export default SuperPagination

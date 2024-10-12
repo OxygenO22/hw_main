@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import { CircularProgress } from '@mui/material'
 
 /*
 * 1 - дописать SuperPagination
@@ -65,30 +66,19 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-        console.log('-----------------');
-        console.log("newPage: ", newPage);
-        console.log("newCount: ", newCount);
-        console.log("count: ", count);
-        console.log("-----------------");
-
-        setPage(newPage);
-         setCount(newCount);
-         sendQuery({ sort, page: newPage, count: newCount });
-
-        // sendQuery(
-        setSearchParams()
-
-        //
+      setPage(newPage);
+      setCount(newCount);
+      sendQuery({ sort, page: newPage, count: newCount });
+      setSearchParams()
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        // sendQuery(
-        // setSearchParams(
+        setSort(newSort);
+        setPage(1) // при сортировке сбрасывать на 1 страницу
+        sendQuery({ sort: newSort, page, count });
+        setSearchParams()
 
         //
     }
@@ -121,7 +111,9 @@ const HW15 = () => {
         <div className={s2.hw}>
           {idLoading && (
             <div id={"hw15-loading"} className={s.loading}>
-              Loading...
+              <div className={s.loading__inner}>
+                <CircularProgress size="3rem" />
+              </div>
             </div>
           )}
 
@@ -134,12 +126,12 @@ const HW15 = () => {
 
           <div className={s.rowHeader}>
             <div className={s.techHeader}>
-              tech
+              Tech
               <SuperSort sort={sort} value={"tech"} onChange={onChangeSort} />
             </div>
 
             <div className={s.developerHeader}>
-              developer
+              Developer
               <SuperSort
                 sort={sort}
                 value={"developer"}
